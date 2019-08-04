@@ -1,0 +1,2 @@
+initial priority queue:: 3,2,1,0
+insert(4):: 4,3,1,0,2

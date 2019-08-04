@@ -1,0 +1,19 @@
+put(7): [7]
+put(6): [7->6]
+get: 7 [6]
+put(5): [6->5]
+isEmpty: false
+put(4): [6->5->4]
+put(3): [6->5->4->3]
+get: 6 [5->4->3]
+get: 5 [4->3]
+get: 4 [3]
+get: 3 [null]
+isEmpty: true
+put(2): [2]
+put(1): [2->1]
+put(0): [2->1->0]
+get: 2 [1->0]
+get: 1 [0]
+get: 0 [null]
+isEmpty: true

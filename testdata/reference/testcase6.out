@@ -1,0 +1,6 @@
+put(1): [1]
+isEmpty: false
+get: 1 [null]
+isEmpty: true
+put(2): [2]
+isEmpty: false

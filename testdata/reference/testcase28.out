@@ -1,0 +1,6 @@
+initial priority queue:: 3,2
+max:: 3
+extract_max:: 2
+insert(4):: 4,2
+extract_max:: 2
+insert(1):: 2,1

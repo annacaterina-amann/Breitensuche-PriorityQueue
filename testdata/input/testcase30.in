@@ -1,0 +1,16 @@
+n=4
+3:1
+0:1,2
+2:0
+1:0,3
+----priority
+3
+insert(0)
+extract_max
+insert(1)
+insert(4)
+insert(2)
+extract_max
+extract_max
+extract_max
+extract_max
