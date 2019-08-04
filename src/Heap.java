@@ -28,7 +28,7 @@ public class Heap {
      */
     public void build_heap(UndirectedGraphNode[] array) {
         //TODO
-    	for (int i = size/2 - 1; i >= 0; i--) { //TODO doesn't change the order of the heap
+    	for (int i = size/2 ; i >= 0; i--) {
     		heapify(array, i);
     	}
     }
@@ -43,11 +43,13 @@ public class Heap {
     	int r = right(i);
     	int index = i;
     	
-    	if (l <= size && array[l].value > array[i].value) {
+    	if (l < size && array[l].value > array[i].value) {
     		index = l;
-    	} else if (r <= size && array[r].value > array[index].value) {
+    	} 
+    	if (r < size && array[r].value > array[index].value) {
     		index = r;
-    	} else if (i != index) {
+    	} 
+    	if (i != index) {
     		swap(array[i], array[index]);
     		heapify(array, index);
     	}
@@ -70,7 +72,7 @@ public class Heap {
      */
     public int left(int i) {
         //TODO
-       return 2*i;
+       return 2*i+1;
     }
 
     /**
@@ -80,7 +82,7 @@ public class Heap {
      */
     public int right(int i) {
         //TODO
-        return 2*i+1;
+        return 2*i+2;
     }
 
     /**
