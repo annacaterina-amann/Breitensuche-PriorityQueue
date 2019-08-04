@@ -92,7 +92,7 @@ public class Heap {
      */
     public int parent(int i) {
         //TODO
-        return i/2;
+        return i-1/2;
     }
 
     /**

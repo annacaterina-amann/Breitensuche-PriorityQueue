@@ -21,8 +21,9 @@ public class PriorityQueue {
      * @return node with the maximum value
      */
     public UndirectedGraphNode max() {
-        //TODO
-        return null;
+		//TODO
+    	UndirectedGraphNode[] max = new UndirectedGraphNode[heap.size];
+        return max[0];
     }
 
     /**
@@ -30,6 +31,10 @@ public class PriorityQueue {
      */
     public void extract_max() {
        //TODO
+    	UndirectedGraphNode[] array = new UndirectedGraphNode[heap.size];
+    	swap(array[1], array[heap.size]);
+    	heap.size -= 1;
+    	heap.heapify(array, 1);
     }
 
     /**
@@ -38,8 +43,23 @@ public class PriorityQueue {
      */
     public void insert(UndirectedGraphNode newnode) {
         //TODO
+    	UndirectedGraphNode[] array = new UndirectedGraphNode[heap.size];
+    	heap.size += 1;
+    	array[heap.size - 1] = newnode;
+    	int i = heap.size;
+    	
+    	while(i > 1 && array[i].value > array[heap.parent(i)].value) {
+    		swap(array[i], array[heap.parent(i)]);
+    		i = heap.parent(i);
+    	}
     }
 
+    private void swap(UndirectedGraphNode ugn1, UndirectedGraphNode ugn2) {
+		// TODO Auto-generated method stub
+    	int temp = ugn1.value; 
+        ugn1.value = ugn2.value; 
+        ugn2.value = temp;
+	}
 
     /**
      * Returns a String representation of the priority queue
