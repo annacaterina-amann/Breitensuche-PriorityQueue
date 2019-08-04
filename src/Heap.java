@@ -18,7 +18,7 @@ public class Heap {
         size = init_array.length;
         array = new UndirectedGraphNode[size];
         array = init_array;
-        build_heap();
+        build_heap(array);
     }
 
 
@@ -26,27 +26,51 @@ public class Heap {
      * Builds a heap based on an unordered array. Hence, after calling this function the array
      * (aka UndirectedGraphNode[] array;) is fullfilling the max-heap condition.
      */
-    public void build_heap() {
+    public void build_heap(UndirectedGraphNode[] array) {
         //TODO
+    	for (int i = size/2 - 1; i >= 0; i--) { //TODO doesn't change the order of the heap
+    		heapify(array, i);
+    	}
     }
 
     /**
      * Heapifies an element in the heap, such that the max-heap condition is satisfied.
      * @param i Index of the element in the array to be heapified.
      */
-    public void heapify(int i) {
+    public void heapify(UndirectedGraphNode[] array, int i) {
         //TODO
+    	int l = left(i);
+    	int r = right(i);
+    	int index = i;
+    	
+    	if (l <= size && array[l].value > array[i].value) {
+    		index = l;
+    	} else if (r <= size && array[r].value > array[index].value) {
+    		index = r;
+    	} else if (i != index) {
+    		swap(array[i], array[index]);
+    		heapify(array, index);
+    	}
+    	
     }
 
 
-    /**
+    private void swap(UndirectedGraphNode ugn1, UndirectedGraphNode ugn2) {
+		// TODO Auto-generated method stub
+    	int temp = ugn1.value; 
+        ugn1.value = ugn2.value; 
+        ugn2.value = temp;
+	}
+
+
+	/**
      * Computes the index of the "left child" of the element at index i.
      * @param i index to compute the "left child" for
      * @return index of the "left child"
      */
     public int left(int i) {
         //TODO
-       return 0;
+       return 2*i;
     }
 
     /**
@@ -56,7 +80,7 @@ public class Heap {
      */
     public int right(int i) {
         //TODO
-        return 0;
+        return 2*i+1;
     }
 
     /**
@@ -66,7 +90,7 @@ public class Heap {
      */
     public int parent(int i) {
         //TODO
-        return 0;
+        return i/2;
     }
 
     /**
