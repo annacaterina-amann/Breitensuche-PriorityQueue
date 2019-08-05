@@ -1,0 +1,2 @@
+initial priority queue:: 3,2,1,0
+extract_max:: 2,0,1

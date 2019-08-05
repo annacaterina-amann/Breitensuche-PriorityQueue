@@ -72,7 +72,7 @@ public class Heap {
      */
     public int left(int i) {
         //TODO
-       return 2*i+1;
+       return 2 * i + 1;
     }
 
     /**
@@ -82,7 +82,7 @@ public class Heap {
      */
     public int right(int i) {
         //TODO
-        return 2*i+2;
+        return 2 * i + 2;
     }
 
     /**
@@ -92,7 +92,7 @@ public class Heap {
      */
     public int parent(int i) {
         //TODO
-        return i-1/2;
+        return (i - 1) / 2;
     }
 
     /**

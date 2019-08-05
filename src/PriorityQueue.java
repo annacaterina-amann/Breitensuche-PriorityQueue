@@ -22,8 +22,7 @@ public class PriorityQueue {
      */
     public UndirectedGraphNode max() {
 		//TODO
-    	UndirectedGraphNode[] max = new UndirectedGraphNode[heap.size];
-        return max[0];
+        return heap.array[0];
     }
 
     /**
@@ -31,10 +30,9 @@ public class PriorityQueue {
      */
     public void extract_max() {
        //TODO
-    	UndirectedGraphNode[] array = new UndirectedGraphNode[heap.size];
-    	swap(array[1], array[heap.size]);
+    	swap(heap.array[0], heap.array[heap.size - 1]);
     	heap.size -= 1;
-    	heap.heapify(array, 1);
+    	heap.heapify(heap.array, 0);
     }
 
     /**
@@ -43,13 +41,12 @@ public class PriorityQueue {
      */
     public void insert(UndirectedGraphNode newnode) {
         //TODO
-    	UndirectedGraphNode[] array = new UndirectedGraphNode[heap.size];
     	heap.size += 1;
-    	array[heap.size - 1] = newnode;
-    	int i = heap.size;
+    	heap.array[heap.size - 1] = newnode;
+    	int i = heap.size-1;
     	
-    	while(i > 1 && array[i].value > array[heap.parent(i)].value) {
-    		swap(array[i], array[heap.parent(i)]);
+    	while(i > 0 && heap.array[i].value > heap.array[heap.parent(i)].value) {
+    		swap(heap.array[i], heap.array[heap.parent(i)]);
     		i = heap.parent(i);
     	}
     }
